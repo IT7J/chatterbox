@@ -165,6 +165,10 @@ var message_list = ["Message"];
           const li = document.createElement('li');
                     li.innerHTML = data2.message;
                     document.querySelector('#messages').append(li);
+        const li1 = document.createElement('li');
+                    li1.innerHTML = localStorage.getItem("name");
+                    document.querySelector('#channelm').append(li1);
+
     });
 
 });
