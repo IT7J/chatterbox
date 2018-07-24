@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <style>
+
+    ul{
+       list-style-type: none;
+    }
+    .messages{
+        font-size: 18px;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+    }
+
+    .qwerty{
+          position: absolute;
+    top: 10px;
+    left: 15px;
+    }
+
+    .channel{
+        font-size: 30px;
+        border-style: solid;
+    border-width: 1px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    }
+
+    .form1{
+        padding-left: 30%;
+        padding-top: 30%;
+    }
+    .form2{
+        padding-top: 5%;
+        padding-left: 30%;
+    }
+
+    .tasks{
+        list-style-position: inside;
+        background: #cce6ff;
+        border-style: solid;
+    border-width: 1px;
+    }
+    .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: Green;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 0px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 20px;}
+  .sidenav a {font-size: 18px;}
+}
+        </style>
+
+
+
+
+       <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+        <script src="{{ url_for('static', filename='index.js') }}"></script>
+    </head>
+    <body>
+         <form id="form" class="form2">
+              <input id="name1" autocomplete="off" autofocus placeholder="Name of the channel" type="text">
+            <input id="submit" type="submit" class="btn btn-success">
+          </form>
+
+            <ul id="messages" class="messages">
+            </ul>
+
+            <div id="channelname" class="channel"></div>
+
+
+          <form id="form1" class="form1">
+              <input id="message" autocomplete="off" autofocus placeholder="Type your message" type="text">
+            <input id="submit1" type="submit" class="btn btn-primary">
+          </form>
+
+
+<div id="mydata">{{channel_list}}</div>
+<div id="mydata1">{{something}}</div>
+
+
+
+ <h1><span id="displayb"></span></h1>
+
+
+
+         <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <ul id="tasks" class="tasks">
+        </ul>
+</div>
+
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()" class="qwerty">&#9776; The list of the channels</span>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+
+    </body>
+</html>
